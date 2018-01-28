@@ -1,10 +1,11 @@
 # Prooviülesanne CGI jaoks
 Eesmärgiks täiendada CGI koodi, et luua töötavat lihtsat hambaarsti visiidi haldamise rakendust.
 
+
 ## Paigaldamise juhend
 
-* Tõmmata repo alla
-* Importida IDE'sse (võib kasutada CGI enda juhendit, mis antakse prooviülesandele kaasa)
+* Tõmmata repo alla (kloonida)
+* Importida IDE'sse (võib kasutada CGI enda juhendit, mis antakse prooviülesandele kaasa, **juhend nii IntelliJ kui ka Eclipse jaoks on lisatud kausta juhendid**) - juhul kui IDE pakub muuta projekti nime dentistapp peale, siis võib seda teha, see ei muuda midagi
 * Jooksutada "DentistAppApplication" (port, millelt rakendus on saadaval ilmub konsooli)
 
 ## Tähelepanekud
@@ -12,6 +13,7 @@ Eesmärgiks täiendada CGI koodi, et luua töötavat lihtsat hambaarsti visiidi 
 * Väikse visiitide hulga kiireks sisestamiseks külastada aadressit <rakenduse_pealehe_aadress>/addDemoVisits, näiteks kui rakendus jookseb pordil 8080, siis http://localhost:8080/addDemoVisits.
 See lisab andmebaasi 7 visiidikirjet testimiseks
 * Projektil on olemas javadoc dokumentatsioon, asub kaustas doc. Käivitamiseks tõmmata alla ja mõnda html faili (näiteks index.html)
+* Projekti on testitud mitmel arvutil kasutades IntelliJ tavalist versiooni kui ka professional versiooni.
 
 ## Tööprotsess
 
