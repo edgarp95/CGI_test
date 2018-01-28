@@ -140,9 +140,10 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
      * @return suunab ümber results lehele
      */
     @GetMapping("/addDemoVisits")
-    public String addDemoVisits() {
+    public String addDemoVisits(RedirectAttributes redirectAttributes) {
         dentistVisitService.addDemoVisits();
-        return "redirect:/results";
+        redirectAttributes.addFlashAttribute("demo","demo");
+        return "redirect:/";
     }
 
     /**
