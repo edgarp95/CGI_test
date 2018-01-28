@@ -20,7 +20,7 @@ See lisab andmebaasi 7 visiidikirjet testimiseks
 * Kestvus 5 minutit
 * Probleeme ei esinenud, imporditud IntelliJ keskkonda
 
-### 1.2
+#### 1.2
 * Kestvus umbes 2 tundi (millest umbes 45 minutit läks projektiga tutvumiseks ja arusaamiseks, mis ja kuidas töötab)
 * Tekkis arusaamise küsimus: rakendusel esialgu juba kuupäeva valik, palutakse lisada 2 uut sisendvälja: perearsti nime ning kellaaja ja kuupäeva valiku.
 Kuna kuupäev juba olemas, siis lihtsalt lisasin kellaaja valiku - kokku rakendusel siis 4 sisendvälja visiidi broneerimisel.
