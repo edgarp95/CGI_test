@@ -17,6 +17,7 @@ See lisab andmebaasi 7 visiidikirjet testimiseks
 * Projekti on testitud mitmel arvutil kasutades IntelliJ tavalist versiooni kui ka professional versiooni.
 
 ## Tööprotsess
+NB! Kestvus - aeg, mis kulus ülesande täielikuks lahendamiseks
 
 ### Etapp 1
 #### 1.1
