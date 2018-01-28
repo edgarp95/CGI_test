@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Broneeringu muutmine</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div th:if="${time_issue != null}"  class="alert alert-danger" th:text="#{register.timeIssue}">
+        Time issue
+    </div>
+
+    <h2 align="center" th:text="#{edit.title}"></h2>
+    <div class="table-responsive">
+        <form action="#" th:action="@{/change/} + ${id}" th:object="${dentistVisitDTO}" method="post">
+            <table class="table table-bordered">
+                <tr>
+                    <td><p th:text="#{arsti.nimi}">arsti.nimi</p></td>
+                    <td><input type="text" th:field="*{dentistName}"  th:attr="placeholder=*{dentistName}"/></td>
+                    <td th:if="${#fields.hasErrors('dentistName')}" th:errors="*{dentistName}" style="color:red">Nime viga</td>
+                </tr>
+                <tr>
+                    <td><p th:text="#{perearst.nimi}">perearst.nimi</p></td>
+                    <td><select th:field="*{familyDrName}">
+                        <th:block th:each="i : ${familyDoctors}">
+                            <option th:value="${i}" th:text="${i}"></option>
+                        </th:block>
+                    </select></td>
+                    <td th:if="${#fields.hasErrors('familyDrName')}" th:errors="*{familyDrName}" style="color:red">>Nime viga</td>
+                </tr>
+                <tr>
+                    <td><p th:text="#{visiidi.kuupaev}">visiidi.kuupaev</p></td>
+                    <td><input type="text" th:field="*{visitTime}"  th:attr="placeholder=*{visitTime}" /></td>
+                    <td th:if="${#fields.hasErrors('visitTime')}" th:errors="*{visitTime}" style="color:red">Kuupäeva viga</td>
+                </tr>
+                <tr>
+                    <td><p th:text="#{visiidi.kellaaeg}">kellaaeg</p></td>
+                    <td><input id="time" type="time" th:field="*{visitClock}" /></td>
+                    <td th:if="${#fields.hasErrors('visitClock')}" th:errors="*{visitClock}" style="color:red">Kellaaja viga</td>
+
+                </tr>
+            </table>
+            <div align="center">
+                <button type="submit" class="btn btn-primary" th:text="#{registreeri.visiidile3}"></button>
+            </div>
+        </form>
+        <br/>
+        <div align="center">
+            <a th:href="@{/delete/} + ${visitid}">
+                <button type="submit" class="btn btn-primary" name="deleteVisit" th:text="#{search.kustuta}">
+                    Kustuta
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+    <div align="center">
+        <a th:href="@{/search}">
+            <button type="submit" class="btn btn-primary" th:text="#{search.tagasi}"></button>
+        </a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+com.cgi.dentistapp
+com.cgi.dentistapp.controller
+com.cgi.dentistapp.dao
+com.cgi.dentistapp.dao.entity
+com.cgi.dentistapp.dto
+com.cgi.dentistapp.service

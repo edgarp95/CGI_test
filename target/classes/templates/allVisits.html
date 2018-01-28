@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Broneeringud</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div th:if="${delete_success != null}"  class="alert alert-success" th:text="#{search.kustuta.success}">
+        Success
+    </div>
+    <div th:if="${delete_fail != null}"  class="alert alert-danger" th:text="#{search.kustuta.fail}">
+        Fail
+    </div>
+    <div th:if="${not_exist != null}"  class="alert alert-warning" th:text="#{search.muuda.not_exist}">
+        Fail
+    </div>
+    <div th:if="${change_success != null}"  class="alert alert-success" th:text="#{search.muuda.success}">
+        Success
+    </div>
+
+
+    <h2 align="center" th:text="#{search.title}"></h2>
+    <div class="table-responsive">
+        <form action="#" th:action="@{/search}" th:object="${searchDTO}" method="post">
+
+            <table class="table">
+                <tr>
+                    <td><p th:text="#{visit.id}">id</p></td>
+                    <td><input type="number" th:field="*{id}"/></td>
+                    <td th:if="${#fields.hasErrors('id')}" th:errors="*{id}">id viga</td>
+                </tr>
+                <tr>
+                    <td><p th:text="#{arsti.nimi}">arsti.nimi</p></td>
+                    <td><input type="text" th:field="*{dentistName}"/></td>
+                    <td th:if="${#fields.hasErrors('dentistName')}" th:errors="*{dentistName}">Nime viga</td>
+                </tr>
+                <tr>
+                    <td><p th:text="#{perearst.nimi}">perearst.nimi</p></td>
+                    <td><select th:field="*{familyDrName}">
+                        <option value="" th:text="#{search.vali}">Perearst</option>
+                        <th:block th:each="i : ${familyDoctors}">
+                            <option th:value="${i}" th:text="${i}"></option>
+                        </th:block>
+                    </select></td>
+                    <td th:if="${#fields.hasErrors('familyDrName')}" th:errors="*{familyDrName}">Nime viga</td>
+                </tr>
+            </table>
+            <div align="center">
+                <button  type="submit" class="btn btn-primary" th:text="#{search.otsi}" ></button>
+            </div>
+        </form>
+    </div>
+
+
+    <br/>
+    <br/>
+    <br/>
+    <h2 align="center" th:text="#{search.visits}"></h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+
+                <th th:text="#{register.id}">id</th>
+                <th th:text="#{register.dentist}">hambaarst</th>
+                <th th:text="#{register.familyDr}">Perearst</th>
+                <th th:text="#{register.date}">Aeg</th>
+                <th th:text="#{register.delete}">Del</th>
+                <th th:text="#{register.change}">Muuda</th>
+
+            </tr>
+        </thead>
+
+        <tbody th:each="visit : ${visits}" th:remove="tag">
+            <tr>
+                <td  th:text="${visit.getId()}">id</td>
+                <td  th:text="${visit.getDentistName()}">dentist</td>
+                <td  th:text="${visit.getFamilyDr()}">perearst</td>
+                <td  th:text="${visit.getVisitTime()}">visiidiaeg</td>
+                <td>
+                    <a th:href="@{/delete/} + ${visit.getId()}">
+                        <button type="submit" name="deleteVisit" th:text="#{search.kustuta}">
+                            Kustuta
+                        </button>
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{/change/} + ${visit.getId()}">
+                        <button type="submit" name="changeVisit" th:text="#{search.muuda}">
+                            Muuda
+                        </button>
+                    </a>
+                </td>
+            </tr>
+
+
+        </tbody>
+
+    </table>
+    <p align="center" th:if="${visits.empty}" th:text="#{register.null}">puudu</p>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <div align="center">
+        <a th:href="@{/}">
+            <button type="submit" class="btn btn-primary" th:text="#{dashboard.tagasi}"></button>
+        </a>
+    </div>
+
+
+</body>
+</html>
