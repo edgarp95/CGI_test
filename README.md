@@ -48,14 +48,13 @@ milles broneering kustutatakse.
 * Läksid sassi omavahel DentistVisitEntity ja DentistVisitDao, mille tõttu tuli segadus vaates.
 * Lisaks kulus aega sellele, et leida, kuidas entityManager saab olemasoleva kirja üle kirjutada
 
-####4.3
+#### 4.3
 * Kestvus kuni 1 tund
 * Tõsiseid probleeme sellega ei esinenud, "time.before" ja "time.after" lubasid lihtsasti realiseerida funktsionaalsuse
 * Visiidi aknaks valitud 45 minutit, teisisõnu visiidist eespool alla 45 minutit visiidid võimatud (kuna muidu satuks visiit tagant olemasolevale
 visiidile otsa) ning samuti tagapool kuni 45 minutit.
 
-###Lisaks
+### Lisaks
 * Umbes 1 tund kasutajaliidese "ilusamaks" muutmiseks, kasutatud bootstrap. Pom failis olid vajalikud "dependency'd" olemas, ei pidanud neid lisama
 * Bugide parandamine kuni 30 minutit, leitud bugid: 1) olemasoleva visiidi muutmisel ütles rakendus, et visiidi aeg juba hõivatud (selle sama visiidi poolt 
-tegelikult), lahenduseks id atribuudi kasutamine kontrollis, kui id't "üksteist segavatel" visiitidel ühtivad, siis tegu on ühe visiidiga ning võib broneeringu teha; 
-2) visiidi kustutamisel visiidi muutmise vaatest, tekkis tõrkeid, seotud väikse näpuveaga.
+tegelikult), lahenduseks id atribuudi kasutamine kontrollis, kui id't "üksteist segavatel" visiitidel ühtivad, siis tegu on ühe visiidiga ning võib broneeringu teha; 2) visiidi kustutamisel visiidi muutmise vaatest, tekkis tõrkeid, seotud väikse näpuveaga.
